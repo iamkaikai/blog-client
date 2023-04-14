@@ -21,6 +21,8 @@
         "no-restricted-syntax": [0, "DebuggerStatement"],
         "no-debugger": "warn",
         "indent": ["error", 4],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": ["error", 4],
         "react/jsx-uses-react": 2,
         "react/jsx-uses-vars": 2,
         "react/react-in-jsx-scope": 2,
