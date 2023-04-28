@@ -1,54 +1,22 @@
-import React from 'react';
-import { createRoot } from 'react-dom';
-import {
-    BrowserRouter, Routes, Route, NavLink, useParams,
-} from 'react-router-dom';
 import './style.scss';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { configureStore } from '@reduxjs/toolkit';
 
-function About(props) {
-    return <div> All there is to know about me</div>;
-}
+import rootReducer from './reducers';
 
-function Welcome(props) {
-    return <div>Welcome</div>;
-}
+import App from './components/app';
 
-function Nav(props) {
-    return (
-        <nav>
-            <ul>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/test/id1">test id1</NavLink></li>
-                <li><NavLink to="/test/id2">test id2</NavLink></li>
-            </ul>
-        </nav>
-    );
-}
-function Test(props) {
-    const { id } = useParams();
-    return <div>ID:{id}</div>;
-}
-function FallBack(props) {
-    return <div>URL Not Found</div>;
-}
-
-function App(props) {
-    // return <div className="test">All the REACT are belong to us!</div>;
-    return (
-        <BrowserRouter>
-            <div>
-                <Nav />
-                <Routes>
-                    <Route path="/" element={<Welcome />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/test/:id" element={<Test />} />
-                    <Route path="*" elemnent={<FallBack />} />
-                </Routes>
-            </div>
-        </BrowserRouter>
-    );
-}
+// this creates the store with the reducers
+const store = configureStore({
+    reducer: rootReducer,
+});
 
 const root = createRoot(document.getElementById('main'));
-root.render(<App />);
+
+root.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+);
