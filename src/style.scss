@@ -1,0 +1,39 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(to bottom, #87e0fd 0%,#f153b7 40%,#05abe0 100%);
+    height: 100%;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.logo {
+    background-image: url('img/dance.gif');
+    width: 400px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 20px auto;
+}  
+
+:root {
+    text-size-adjust: 100%;
+  }
+
+.active {
+    color: #ffe3e3;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+li{
+    margin: 0 10px;
+}
+
+nav{
+    margin-bottom: 60px;
+}
