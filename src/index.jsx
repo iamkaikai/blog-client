@@ -8,7 +8,6 @@ import rootReducer from './reducers';
 
 import App from './components/app';
 
-// this creates the store with the reducers
 const store = configureStore({
     reducer: rootReducer,
 });

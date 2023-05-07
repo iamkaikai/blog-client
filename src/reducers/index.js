@@ -1,11 +1,14 @@
-// the starting point for your redux store
-// this defines what your store state will look like
 import { combineReducers } from '@reduxjs/toolkit';
+import fetchAll from './postsAllReducer';
+import delPost from './delPostReducer';
+import createPost from './createPostReducer';
+import fetchSinglePost from './postReducer';
 
-import CountReducer from './count-reducer';
-
-const rootReducer = combineReducers({
-    count: CountReducer,
+const ReducerAll = combineReducers({
+    posts: fetchAll,
+    del: delPost,
+    create: createPost,
+    post: fetchSinglePost,
 });
 
-export default rootReducer;
+export default ReducerAll;

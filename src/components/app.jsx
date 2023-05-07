@@ -1,56 +1,32 @@
 import React from 'react';
 import { createRoot } from 'react-dom';
 import {
-    BrowserRouter, Routes, Route, NavLink, useParams,
+    BrowserRouter, Routes, Route, NavLink,
 } from 'react-router-dom';
-import Counter from '../counter';
-import Controls from './controls';
-
-function About(props) {
-    return <div> All there is to know about me</div>;
-}
-
-function Welcome(props) {
-    return (
-        <div>
-            <p>Welcome</p>
-            <Counter />
-            <Controls />
-        </div>
-    );
-}
+import Posts from './fetchPosts';
+import NewPost from './createPosts';
+import Post from './postDetail';
+import Edit from './editPosts';
 
 function Nav(props) {
     return (
         <nav>
-            <ul>
-                <li><NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/test/id1">test id1</NavLink></li>
-                <li><NavLink to="/test/id2">test id2</NavLink></li>
-            </ul>
+            <li className="navUL"><NavLink to="/">Express</NavLink></li>
         </nav>
     );
 }
-function Test(props) {
-    const { id } = useParams();
-    return <div>ID:{id}</div>;
-}
-function FallBack(props) {
-    return <div>URL Not Found</div>;
-}
 
 function App(props) {
-    // return <div className="test">All the REACT are belong to us!</div>;
     return (
         <BrowserRouter>
             <div>
                 <Nav />
                 <Routes>
-                    <Route path="/" element={<Welcome />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/test/:id" element={<Test />} />
-                    <Route path="*" elemnent={<FallBack />} />
+                    <Route path="/" element={<Posts />} />
+                    <Route path="/posts/new" element={<NewPost />} />
+                    <Route path="/posts/:postID" element={<Post />} />
+                    <Route path="/posts/edit/:postID" element={<Edit />} />
+                    <Route path="*" elemnent={<div>post not found</div>} />
                 </Routes>
             </div>
         </BrowserRouter>
