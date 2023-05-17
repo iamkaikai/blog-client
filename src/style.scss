@@ -13,7 +13,24 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
     margin: 20px auto;
-}  
+} 
+.empty_title{
+    font-size: 1rem;
+    color: #999;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
+.empty_content{
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    color: #ccc;
+    position: absolute;
+    top: calc(50% + 3em);
+    left: 50%;
+    transform: translate(-50%, -50%);
+} 
 
 .post{
     width: calc(50% - 16px);
