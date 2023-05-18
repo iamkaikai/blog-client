@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ROOT_URL = 'https://lab4-with-lab5-api.onrender.com/api';
+const ROOT_URL = 'https://lab5-api-qdgw.onrender.com/api';
 
 export const ActionTypes = {
     FETCH_All: 'FETCH_POSTS',
