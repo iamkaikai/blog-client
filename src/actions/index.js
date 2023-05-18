@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const ROOT_URL = 'https://lab4-with-lab5-api.onrender.com/api';
-const API_KEY = '';
 
 export const ActionTypes = {
     FETCH_All: 'FETCH_POSTS',
@@ -13,7 +12,7 @@ export const ActionTypes = {
 
 export function fetchAll() {
     return (dispatch) => {
-        axios.get(`${ROOT_URL}/posts${API_KEY}`).then((response) => {
+        axios.get(`${ROOT_URL}/posts/`).then((response) => {
             dispatch({
                 type: ActionTypes.FETCH_All,
                 payload: response.data,
@@ -26,8 +25,8 @@ export function fetchAll() {
 
 export function createPost(fields, navigate) {
     return (dispatch) => {
-        axios.post(`${ROOT_URL}/posts${API_KEY}`, fields).then((response) => {
-            const refresh = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+        axios.post(`${ROOT_URL}/posts/`, fields).then((response) => {
+            const refresh = axios.get(`${ROOT_URL}/posts/`);
             dispatch({
                 type: ActionTypes.FETCH_CREATE,
                 payload: refresh.data,
@@ -41,7 +40,7 @@ export function createPost(fields, navigate) {
 export function updatePost(id, fields) {
     return async (dispatch) => {
         try {
-            const response = await axios.put(`${ROOT_URL}/posts/${id}${API_KEY}`, fields);
+            const response = await axios.put(`${ROOT_URL}/posts/${id}`, fields);
             console.log('update');
             console.log(response.data);
             dispatch({
@@ -72,7 +71,7 @@ export function deletePost(id) {
         try {
             await axios.delete(`${ROOT_URL}/posts/${id}`);
             try {
-                const refresh = await axios.get(`${ROOT_URL}/posts${API_KEY}`);
+                const refresh = await axios.get(`${ROOT_URL}/posts`);
                 dispatch({
                     type: ActionTypes.FETCH_DEL,
                     payload: refresh.data,
