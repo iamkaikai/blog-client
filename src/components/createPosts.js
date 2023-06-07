@@ -44,7 +44,7 @@ function Create(props) {
             <label htmlFor="tags">
                 <input type="text" id="tags" ref={tagsRef} placeholder="Tags" />
             </label>
-            <button id="create" type="button" onClick={create}> Create </button>
+            <button id="create" type="button" onClick={create}><Link to="/"> Create </Link></button>
             <Link to="/">
                 <button id="cancel" type="button"> Cancel </button>
             </Link>

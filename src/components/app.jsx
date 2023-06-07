@@ -15,7 +15,7 @@ import RequireAuth from './requireAuth';
 function Nav(props) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const isUserAuthenticated = useSelector((state) => state.auth.authenticated); // Get authenticated status from redux state
+    const isUserAuthenticated = useSelector((state) => state.auth.authenticated);
     const signOut = () => {
         dispatch(signoutUser(navigate));
     };

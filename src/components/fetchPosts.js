@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {
     fetchAll, deletePost, fetchSinglePost,
 } from '../actions';
@@ -11,15 +11,21 @@ import optionEdit from '../img/edit.svg';
 
 function Posts() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const posts = useSelector((store) => { return store.posts.all; });
+    const isUserAuthenticated = useSelector((state) => state.auth.authenticated);
 
     useEffect(() => {
         dispatch(fetchAll());
     }, []);
 
     const del = async (postID) => {
-        await dispatch(deletePost(postID));
-        dispatch(fetchAll());
+        if (isUserAuthenticated) {
+            await dispatch(deletePost(postID));
+            dispatch(fetchAll());
+        } else {
+            navigate('/signin');
+        }
     };
 
     const detail = (postID) => {
