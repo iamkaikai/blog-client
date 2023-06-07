@@ -6,6 +6,10 @@ body {
     text-align: center;
 }
 
+#main{
+    padding: 0.5em 1em;
+}
+
 .logo {
     background-image: url('img/dance.gif');
     width: 400px;
@@ -54,6 +58,7 @@ body {
     h3{
         text-align: left;
         font-size: 12px;
+        font-weight: 500;
     }
     h3:first-of-type:hover{
         cursor: pointer;
@@ -68,6 +73,7 @@ body {
     img{
         width: 100%;
         border-radius: 30px;
+        margin: auto;
         border: #f8f8f8 1px solid;
     }
     
@@ -167,6 +173,29 @@ nav{
     margin-bottom: 60px;
 }
 
+.nav{
+    display: flex;
+    justify-content: space-between;
+    li{
+        list-style: none;
+    }
+    .navRight{
+        display: flex;
+        align-items: center;
+        font-size: .9em;
+        color: #ccc;
+        a{
+            color: #979797;
+        }
+        li{
+            margin: 0 1.5px;
+        }
+        a:hover{
+            color: #333;
+        }
+    }
+}
+
 .navUL{
     display: flex;
     justify-content: space-between;
@@ -191,6 +220,7 @@ H1{
     justify-content: center;
     align-items: center;
     min-height: 225px;
+    min-width: 160px;
     background: #f7f7f7;
     border-radius: 30px;
     align-items: flex-start;
@@ -321,9 +351,11 @@ textarea::placeholder{
     border: none;
     background: none;
     color: #bababa;
-    margin-top: 16px;
+    margin-top: 18px;
+    transition: color 0.1s;
     &:hover{
         cursor: pointer;
+        color: #333;
     }
 }
 
@@ -337,5 +369,45 @@ textarea::placeholder{
     width: 64px;
     &:hover{
         cursor: pointer;
+    }
+}
+
+.registration{
+    display: flex;
+    flex-direction: column;
+    margin: 2em auto;
+    width: 400px;
+    justify-content: center;
+    height: 30vh;
+    h1{
+        margin-bottom: 24px;
+    }
+    .RegBox{
+        margin: 1em 0 0.9em;
+        height: 36px;
+        border: 0;
+        border-bottom: 1px solid #979797;
+        transition: border-bottom 0.05s;
+        font-size: 20px;
+    }
+    input:last-of-type{
+        margin-bottom: 1.7em;
+    }
+    input::placeholder{
+        margin-left: 10px;
+        font-size: 16px;
+        color: #e0e0e0;
+    }
+    input:focus{
+        font-size: 20px;
+        border-bottom: 2px solid #333;
+        outline: none;
+    }
+    p{
+        font-size: 13px;
+        margin-top: -6px;
+        color: #666;
+        font-family: monospace;
+        margin-bottom: 32px;
     }
 }
